@@ -1,14 +1,25 @@
-const express=require("express")
+const express = require("express");
+var morgan = require("morgan");
 
-const app =express()
+const app = express();
 
-app.get("/",(req,res)=>{
-    res.send("here from express");
+app.set("view engine", "ejs");
 
+// app.use((req, res, next) => {
+//    console.log("in middleware");
+//    next();
+// });
+
+app.use(morgan("dev"));
+app.get("/", (req, res) => {
+   res.render("index", { title: "Main Page" });
 });
 
-app.listen(3000)
+app.get("/about", (req, res) => {
+   res.render("about", { title: "About Page" });
+});
 
+app.listen(3000);
 
 // const http=require("http")
 // const server=http.createServer((req,res)=>{
