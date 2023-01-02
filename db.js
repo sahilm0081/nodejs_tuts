@@ -6,7 +6,7 @@ const Blog = require("./models/blog.js");
 const app = express();
 
 const dbUrl =
-   "mongodb+srv://username:password@nodetuts.hpnzwfn.mongodb.net/dbname";
+   "";
 mongoose.set("strictQuery", false);
 mongoose
    .connect(dbUrl)
